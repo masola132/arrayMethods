@@ -25,12 +25,12 @@
 
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
-///                                                 ///
-///                                                 ///
+////                                               ////
+////                                               ////
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 
-
+//1
 console.log(items);
 
 var howMany = items.length;
@@ -49,7 +49,7 @@ document.querySelector("#answer1").innerHTML = avg.toFixed(2)
 
 
 
-
+//2
 var filteredItems = items.filter(function(item){
   if( item.price > 14 && item.price < 18){
       return true;
@@ -69,54 +69,68 @@ document.querySelector("#answer2").innerHTML = titles;
 
 
 
-
+//3
 var gbp = items.filter(function(item){
-  if( item.currency_code === GBP) {
+  if( item.currency_code === "GBP") {
     return true;
   } else {
      return false;
   }
-})
-document.querySelector("#answer3").innerHTML = gbp;
+});
+
+var titles = "";
+gbp.forEach(function(item, i){
+  titles += item.title + "<br />";
+});
+document.querySelector("#answer3").innerHTML = titles;
 
 
 
 
 
 
-
+//4
   var woodenItems = items.filter(function(items){
-    if( items.materials === wood); {
-      return true;
-    } else {
-       return false;
-    }
-})
-document.querySelector("#answer4").innerHTML = woodenItems;
+    return items.materials.indexOf("wood") !== -1
+  });
+  var titles = "";
+woodenItems.forEach(function(item, i){
+  titles += item.title + "<br />";
+});
+document.querySelector("#answer4").innerHTML = titles;
 
 
 
 
 
-
+//5
   var eightMaterial = items.filter(function(items){
-    if(items.materials >= 8); {
+    if(items.materials.length >= 8) {
       return true;
     } else {
-       return false
+      return false;
     }
   })
-  document.querySelector("#answer5").innerHTML = eaightMaterial;
+
+  var titles = "";
+eightMaterial.forEach(function(item, i){
+  titles += item.title + "<br />";
+});
+  document.querySelector("#answer5").innerHTML = titles;
 
 
 
 
-
-var manufacturing = items.filter(function(items){
-  if (items.who_made === i_did) {
+//6
+var manufacturing = items.filter(function(item){
+  if (item.who_made === "i_did") {
     return true
   }else {
     return false
   }
 })
-document.querySelector("#answer6").innerHTML = manufactureing;
+ var titles = "";
+manufacturing.forEach(function(item, i){
+  titles += item.title + "<br />";
+});
+document.querySelector("#answer6").innerHTML = titles;
